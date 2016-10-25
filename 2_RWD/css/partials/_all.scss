@@ -1,0 +1,115 @@
+
+//Zadanie 2 - zapytania media queries
+// daje wielkosc ekranu do zmiennych w _variables.scss, a potem podstawiam w @media
+
+html {
+    font-size: $generalFontSize;
+}
+// wersja z zajec
+// bo parsowanie w css, od najwiekszego do najmniejszego i nadpisuje te co sa wyzej
+// min-width:800px
+// max-width:800px
+//max-width:400px
+// przy min i max w zmiennych zaczynamy od najmniejszego, natomiast jak mamy pojedyncze to od desktopu
+// i dlatego piszemy taki kod
+// body {
+    // @media (min-width:800px) { // desktop
+        // w tym miejscu trzeba uzywac #{} jak zastosuje gola zmienna to wywala blad i chce nawiasow ()
+        // background-color: green;
+    // }
+    // @media (max-width:800px) { // tablet
+        // background-color: violet;
+    // }
+    // @media (max-width:400px) { // smartphone
+        // background-color: orange;
+    // }
+// }
+body {
+    @media #{$smartphone} {
+        // w tym miejscu trzeba uzywac #{} jak zastosuje gola zmienna to wywala blad i chce nawiasow ()
+        background-color: green;
+    }
+    @media #{$tablet} {
+        background-color: violet;
+    }
+    @media #{$desktop} {
+        background-color: orange;
+    }
+}
+// Zadanie 3 - uklad elementow
+
+.box_zad3 {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    margin-left: 10px;
+    border: 3px solid darkred;
+    float: left;
+    @media screen and (max-width: 640px) {
+        //jesli ekran jest mniejszy niz 640px to ...
+        float: none;
+        width: 100%;
+    }
+}
+/*.box_zad3 {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    margin-left: 10px;
+    border: 3px solid darkred;
+    float: left;
+    @media screen and (max-width: 840 px){
+        float: left;
+        width:100%;
+}
+    @media screen and (max-width: 640px) {
+        //jesli ekran jest mniejszy niz 640px to ...
+        float: none;
+        width: 100%;
+    }
+}
+*/
+// jeszcze zrobic na odwrot, jak sa po soba, zaczac od wiekszego
+// Zadanie 4 - grid. W folderze Zad.4-grid
+
+// Zadanie 5 - mixin, mobile first
+// zeby <p> sie wyswietlaly pod boxami
+.zadanie5 {
+    display: inline-block;
+}
+// nadaje razmiar fontow oraz dodaje @include, czyli moxina zmianiającego czcionke zaleznie od urzadzenia
+
+h1 {
+    font-size: $hFontSize;
+    @include greaterFonts($hFontSize);
+}
+
+p {
+    font-size: $paragrafFontSize;
+    @include greaterFonts($paragrafFontSize);
+}
+// Zadanie 6 - flexbox
+// - boxy
+.container_6{
+    // width:100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.box_zad6{
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border: 3px solid lightblue;
+}
+// - lista
+.lista{
+    display: flex;
+    justify-content: center;
+    li{
+        margin: 10px; // zeby ladnie sie ukladaly, bo nachodzily na siebie
+    }
+}
+// zad 7 - w folderze Holy Grail
+// Zad 8 - w folderze zadnienie 8
+// zad 9 - mozna zrobic w css, mozna ukryc menu a pokazac hamburgera ;
+// nie trzeba w javascripcie tego robic

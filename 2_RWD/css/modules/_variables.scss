@@ -1,0 +1,23 @@
+
+//Zadanie 2 i 5
+$smartphone: "(max-width: 400px)";
+$tablet: "(min-width: 401px) and (max-width: 800px)";
+$desktop: "(min-width:801px)";
+
+// Zadanie 5 - zmienne i mixin
+$generalFontSize: 16px;
+$paragrafFontSize: 12px;
+$hFontSize: 25px;
+
+// mixin powiekszajacy font o 2px w zaleznosci od szerokosci ekranu
+@mixin greaterFonts($element) {
+     @media #{$smartphone} {
+        font-size: $element;
+    }
+    @media #{$tablet} {
+        font-size: $element +2;
+    }
+    @media #{$desktop} {
+        font-size: $element+4; // dla desktop najwieksza czcionka
+    }
+}

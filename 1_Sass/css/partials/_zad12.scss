@@ -1,0 +1,52 @@
+
+/*Zadanie 12*/
+// *******************1 przyklad
+//*********zle
+/*a {
+    color: red;
+}
+.error {
+    @extend a;
+    border-color: red;
+}
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+*/
+// ***************poprawione
+a {
+    color: red;
+    &:hover {
+        color: #333;
+        text-decoration: underline;
+    }
+}
+.error {
+    color: red; // zmieniam recznie kolor
+    border-color: red;
+}
+
+
+// *********************************2 przyklad
+// ****************zle
+/*#admin .nav a {
+    color: #333;
+}
+a {
+    color: #666;
+}
+#demo .body .link {
+    @extend a;
+}
+*/
+// ******************poprawiamy
+a {
+    color: #666;
+}
+header .main-width a {
+    color: #333;
+}
+.main-width header h2 {
+    color: #666; // ustawiam recznie kolor
+}

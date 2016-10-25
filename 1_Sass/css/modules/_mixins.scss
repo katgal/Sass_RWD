@@ -1,0 +1,11 @@
+
+/*zadanie 11 - mixin border-radius*/
+// border-radius juz raczej nie potrzebuje prefixow
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+    // background-clip: padding-box; // kolor nie wchodzi na border
+    // background-clip: content-box; // kolor tylko na kontencie
+    // background-clip: border-box; // default - kolor po calosci (border, padding)
+}

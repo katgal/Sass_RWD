@@ -1,0 +1,54 @@
+//Zadanie 10
+
+.picContainer {
+    width: 100%;
+
+    div,
+    img {
+        float: left; // zeby byly obok siebie
+        box-sizing: border-box;
+        margin: 0; // jesli nie dam marginu 0 to dzieja sie dziwne rzeczy
+    }
+}
+
+.picContainer {
+    div {
+        background-image: url("https://s-media-cache-ak0.pinimg.com/564x/86/1e/6c/861e6cb2b5d03c5ed754428ccf4943bd.jpg");
+        background-repeat: no-repeat; // nie powtarzaj obrazka
+        background-size: cover; // obrazek zawsze wypelni caly kontener
+    }
+}
+
+//*************media queries******************
+
+//***********spartphones*********************
+@media screen and (max-width: 400px) {
+    .picContainer {
+        img {
+            width: 100%;
+            // display: block; // bez tego tez sie ukladaja jeden pod drugim
+        }
+
+        div {
+            // display: block;
+            width: 100%;
+            padding-bottom: 95%; // jak dam mniej to nie bedzie widac calego obrazka
+        }
+    }
+}
+//****dla wiekszych ekranow********************
+@media screen and (min-width: 401px) and (max-width: 1920px) {
+    .picContainer {
+        img {
+            // float: left;
+            width: 50%; // kazdy obraz wypelni polowe ekranu
+        }
+
+        div {
+            // float: left;
+            width: 50%; // kazdy obraz wypelni polowe ekranu
+            padding-bottom: 50%;
+            // by widoczny byl caly obraz
+        }
+    }
+}

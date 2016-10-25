@@ -1,0 +1,47 @@
+$main-color: blue; // można stosowac zapis taki jak w css, czyli z myslnikiem
+$minor-color: green; // kolor akcentu, podkreslenie , kontrastowy jednocesnie pasujacy do man color
+$paddings: 3px 5px;
+$paddingTopBottom: 20px 0; // Zadanie 6 - ustawiam zmienna dla padding top i bottom
+$additional-color: yellow;
+$main-width: 1000px;
+
+// zadanie 14
+$lineHeight: 20px; // camelCase rowniez jest mile widziany albo nawet i lepszy
+$fontSize: 16px;
+$headersColor: black;
+// funkcja aby obliczyc font-size i line-height: zmienna $size to wartosc font-size i line-height
+@function headerSize($size){
+  @return $size*1.3; // zwracam wynik
+}
+
+// Zadanie 15/16 - kolory dla kontenerow/mapa z 5. kolorami
+$boxColors: (
+success: darkgreen,
+error: red,
+info: lightblue,
+blockEven: orange, // do zadania 15 dla each
+blockOdd: blue // do zadania 15 dla each
+);
+
+$additionalColors: (
+success: green,
+error: darkred,
+info: blue
+);
+
+// mapy zad 16 - przyklad z zajec
+// $dialogColors:{
+  // success: green,
+  // error: darkred,
+  // info: blue,
+  // notice: gray,
+  // userInfo: black
+// };
+
+// dialogType sami tworzymy dla each'a
+
+// @each $dialogType in info, warning, error, notice, userInfo{
+  // .#{$dialogType}{
+    // background: map-get($dialogColors, $dialogType);
+  // }
+// }

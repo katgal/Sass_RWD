@@ -1,0 +1,22 @@
+
+  /*Zadanie 9*/
+  footer {
+    .main-width {
+        ul.menu {
+            li {
+                display: inline-block;
+                border: 1px solid green;
+                padding: 5px 0; // wyrownanie do lewej
+                text-align: left; // wyrownaie do lewej
+                width: 80px;
+                &:hover {
+                    background: orangered;
+                    color: forestgreen;
+                }
+            }
+            li:last-child {
+                text-align: right; // wyrownanie do prawej
+            }
+        }
+    }
+}

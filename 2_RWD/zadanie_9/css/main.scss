@@ -1,0 +1,103 @@
+// zadanie 9 - mozna pokombinowac tylko za pomoca css, ale mozna tez w javascript
+// dla smartphona ma byc hamburger z rozsuwanym menu()w css albo js, a normalnie ma byc zwykle menu;
+@import "partials/reset";
+
+h1 {
+    text-align: center;
+    color: lightgrey;
+    padding: 30px;
+    font-size: 25px;
+}
+// header {
+// width: 100%;
+// min-width: 1200px;
+// }
+//*************hamburger menu***************
+
+.hamburger {
+    padding: 10px;
+    display: block;
+    background-color: lightgrey;
+    // visibility:hidden; // lepiej to wyglada z media queries niz ustawianie wyjsciowo visibility:hidden
+    // menu zwykle i menu hamburger zastepuja sie przy zmianie wielkosci ekranu, a visibility powoduje, że
+    // jedno jest wyzej a grugie niezej, mimo ze nie widac ich rownoczesnie
+    cursor: pointer; // gdy najade kursorem na hamburger menu to kursor zmienie sie w łapke
+}
+
+.line {
+    width: 20px;
+    height: 4px;
+    background-color: red;
+    border-radius: 5px;
+    margin: 3px 0;
+}
+//***************normal menu*****************
+
+.list {
+    list-style: none;
+    background-color: lightgrey;
+
+    li {
+        border: 1px solid grey;
+    }
+
+    a {
+        text-decoration: none;
+        color: darkred;
+        text-align: center; // wysrodkowanie tekstu
+        display: block;
+        padding: 10px;
+
+        &:hover {
+            background: #e6e6e6;
+        }
+    }
+}
+// media queries moglam dac w elementach/.list, bo tak mozna, ale chcialam je rozdzielic by bylo przejrzysciej
+// **********media queries**********************
+
+//**********dla większych ekranów***************
+
+@media screen and (min-width:601px) {
+    .list {
+        //wyswietlaj standardowa liste
+        display: flex; // li wyswietla sie w jednym rzedzie, a nie pod spodem tak jak byly
+
+        li {
+            flex: 1 1 0; // wszystkie beda takiej samej szerokosci w tym samym rzedzie
+        }
+    }
+
+    .hamburger {
+        //nie pokazuj hamburger menu
+        display: none;
+    }
+}
+//**************smartphones**************
+
+//menu dla smartfonow jest ustawione natywnie w czterech rzedach
+@media screen and (max-width:600px) {
+    .list {
+        opacity: 0.7;
+        display: none;
+        // height: 0;
+        // -webkit-transition: height, 0.5s linear;
+        // -moz-transition: height, 0.5s linear;
+        // -ms-transition: height, 0.5s linear;
+        // transition: height, 0.5s linear;
+        //   visibility:hidden;
+        // opacity:0;
+        //  transition: top 0.3s linear, opacity 0.7s linear;
+        // transition-duration: 2s; // efekt przejścia z opacity 0 do 0.7 po dodaniu klasy .show
+        &.show {
+            // dodaje nowa klase do listy, ktora w jquery uzywam do toggleClass
+            // visibility:visible;//ukryj menu i bedzie widoczne tylko hamburger menu a rzedy menu niewidoczne
+            display: block;
+            // height: 9.5em;
+            // -webkit-transition: height, 0.5s linear;
+            // -moz-transition: height, 0.5s linear;
+            // -ms-transition: height, 0.5s linear;
+            // transition: height, 0.5s linear;
+        }
+    }
+}

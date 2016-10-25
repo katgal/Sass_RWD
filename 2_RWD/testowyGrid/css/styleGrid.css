@@ -1,0 +1,91 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  margin: 0 auto;
+}
+
+.col-1 {
+  width: 7.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-2 {
+  width: 15%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-3 {
+  width: 22.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-4 {
+  width: 30%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-5 {
+  width: 37.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-6 {
+  width: 45%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-7 {
+  width: 52.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-8 {
+  width: 60%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-9 {
+  width: 67.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-10 {
+  width: 75%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-11 {
+  width: 82.5%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+.col-12 {
+  width: 90%;
+  border: 1px solid black;
+  min-height: 5em;
+  float: left;
+}
+
+/*# sourceMappingURL=styleGrid.css.map */

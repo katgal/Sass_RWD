@@ -1,0 +1,38 @@
+.picContainer {
+  width: 100%;
+}
+
+.picContainer div,
+.picContainer img {
+  float: left;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.picContainer div {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/564x/86/1e/6c/861e6cb2b5d03c5ed754428ccf4943bd.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 400px) {
+  .picContainer img {
+    width: 100%;
+  }
+  .picContainer div {
+    width: 100%;
+    padding-bottom: 95%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 1920px) {
+  .picContainer img {
+    width: 50%;
+  }
+  .picContainer div {
+    width: 50%;
+    padding-bottom: 50%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

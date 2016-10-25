@@ -1,0 +1,57 @@
+
+@mixin grid-system($col-count:12,$max-width:1200px, $gutter-size:12px, $breakpoint-width:800px){
+
+// mozna ustawaic watosci domyslne
+
+// $oneColWidth: 100%/12;// zmienna pomocnicz nie musi byc w variables col-count
+$oneColWidth: 100%/$col-count;
+// wszystko ma miec box sizing
+
+// wszystko robimy w grid-container
+.grid-container{
+  width: 100%;
+  // jesli ekran sie zrobi za wielki
+  // max-width: 1200px;
+  max-width: $max-width; // mixin
+  margin: 0 auto; // zeby sie wyswietlalo na srodku strony
+  // background: green;
+
+  // * {
+    // box-sizing: border-box;
+  // }
+//
+.row{
+  // background: orange;
+
+  &::before, // .row::before, .row::after do tego sie odnosi &
+  &::after {
+        content: ""; // to tak ma byc po prostu
+        display: table;
+        clear: both;
+      }
+        // kolumny beda sie dobrze ustawiac, i beda mialy minimalna wysokosc
+        [class*="col-"] {
+            float: left;
+            min-height: 1px;
+            margin:0; // resetujemy marginy,
+            // background: blue;
+            // gutter
+            // padding: 12px;
+            padding: $gutter-size;
+            // mozna dodac do kolumny border box_zad3
+            box-sizing: border-box;
+        }
+        // @for $i from 1 through 12 { // dodajemy kolumny
+        @for $i from 1 through $col-count{
+          .col-#{$i}{
+            width: 100%; // normalne ma 100% a jak 800-1200 to 8.333% (patrz css)
+
+            // @media (min-width:800px){ // od 800 do 1200
+              @media (min-width:$breakpoint-width){
+            width: $oneColWidth * $i;
+             }
+          }
+        }
+    }
+}
+}

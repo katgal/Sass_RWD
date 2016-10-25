@@ -1,0 +1,126 @@
+html {
+  font-family: "Lucida Sans", sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+.grid-container {
+  width: 100%;
+  max-width: 1920px;
+  /*gutter - odstep*/
+  box-sizing: border-box;
+}
+
+.grid-container ::after,
+.grid-container ::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header {
+  background-color: darkviolet;
+  margin-bottom: 15px;
+  height: 90px;
+}
+
+div ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+div ul li {
+  background-color: #0099cc;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+div ul li:hover {
+  background-color: lightblue;
+}
+
+main {
+  background-color: orange;
+  height: 250px;
+}
+
+aside {
+  background-color: blue;
+  height: 250px;
+}
+
+footer {
+  background-color: green;
+  margin-top: 15px;
+  height: 60px;
+}
+
+[class*="col-"] {
+  float: left;
+  min-height: 1px;
+}
+
+.col-1 {
+  width: 8.33333%;
+}
+
+.col-2 {
+  width: 16.66667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33333%;
+}
+
+.col-5 {
+  width: 41.66667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33333%;
+}
+
+.col-8 {
+  width: 66.66667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33333%;
+}
+
+.col-11 {
+  width: 91.66667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  [class*="col-"] {
+    float: none;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1920px) and (orientation: landscape) {
+  [class*="col-"] {
+    float: left;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

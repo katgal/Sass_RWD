@@ -1,0 +1,35 @@
+
+/*Zadanie 8*/
+// visited jest na zawsze - zawsze pokazuje ze odwiedzony jak juz kliknelismy,chyba ze zmienimy nazwe w html!!!!!
+ul.myLinks {
+    li:first-child {
+        a {
+            color: orange;
+            &:hover {
+                color: darkred;
+            }
+            &:visited {
+                color: black;
+            }
+        }
+    }
+    li:last-child {
+        a {
+            color: green;
+            &:hover {
+                color: darkred;
+            }
+            &:visited {
+                color: black;
+            }
+        }
+    }
+}
+a {
+    &:hover {
+        color: darkred;
+    }
+    &:visited {
+        color: black;
+    }
+}

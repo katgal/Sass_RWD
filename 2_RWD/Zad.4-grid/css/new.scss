@@ -1,0 +1,76 @@
+// zad4 z gotowym grid
+
+@import "partials/reset";
+@import "partials/grid";
+
+@include grid-system(12, 1200px, 12px, 640px);
+
+// najlepiej zrobic to w procentach
+$heightMainAside: 70vh;
+$heightFooter: 10vh;
+$heightHeader: 20vh;
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    color: white;
+    font-weight: bold;
+}
+.row {
+    // height: 70vh;//; dac wyskokosc calemu row w vh a dzieciom dac po 100% (gdy chcemy ustawiac w %)
+    &:first-child{
+        margin-bottom: 15px;
+        // height:20vh;
+    }
+    &:last-child{
+    margin-top: 15px;
+    // height:10vh;
+    }
+    &:nth-child(2){
+        // height:20vh;
+    }
+    .menu{ // nie dzala
+    padding: 0 !important;
+    // height:100%;
+}
+}
+
+header {
+    background-color: darkviolet;
+    // margin-bottom: 15px;
+    height: $heightHeader;
+}
+
+div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    // height: 100%;// dac rodzicowi 100%
+
+    li {
+        background-color: #0099cc;
+        padding: 40px;
+        margin-bottom: 15px;
+        // height: 20%;// dac dziecku 20% zeby sie ladnie rozlozyly
+
+        &:hover {
+            background-color: lightblue;
+        }
+    }
+}
+// ustawiam tla i wysokosci dla elmenetow
+
+main {
+    background-color: orange;
+    height: $heightMainAside;
+}
+
+aside {
+    background-color: blue;
+    height: $heightMainAside;
+}
+
+footer {
+    background-color: green;
+    // margin-top: 15px;
+    height: $heightFooter;
+}

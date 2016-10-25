@@ -1,0 +1,100 @@
+
+// co do prefixow to teoretycznie tylko internet explorer ma problemy z flexbox
+// mozna bylo rowniez zrobic inaczej - 2 mixiny ze wsztstkim
+// 1 sposob 2 mixiny z ustawionymi na sztywno wartosciami
+
+@mixin wrap {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+@mixin flexbox2 {
+    // display:flex
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    //justify-content
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    // align-items
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}
+
+//****************************************************************************************
+// drugi sposob z z universalnymi mixinami i warosciami $value...
+
+// flexbox
+@mixin flexbox {
+    display: -webkit-box; // dla przegladarek nie obslugujacych flexbox
+    display: -webkit-flex; // dla chrome, safari, android, ios
+    display: -moz-flex; // mozilla
+    display: -ms-flex; // ie
+    display: flex;
+}
+// flex-wrap
+@mixin flex-wrap($value) {
+    // no webkit for fallback
+    -webkit-flex-wrap: $value;
+    -moz-flex-wrap: $value;
+    @if $value == nowrap {
+        -ms-flex-wrap: none; // wyjatek dla ms
+    }
+    @else {
+        -ms-flex-wrap: $value;
+    }
+    flex-wrap: $value;
+}
+
+// justify-content
+@mixin justify-content($value) {
+     @if $value == flex-start{
+        -webkit-box-pack: start; // fallback
+        -ms-flex-pack: start; // ie
+    }
+    @else if $value == flex-end {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+    }
+    @else if $value == space-between {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+    }
+    // @else if $value == space-around {
+    // -ms-flex-pack: distribute;
+    // }
+    @else {
+        -webkit-box-pack: $value; // fallback
+        -ms-flex-pack: $value; // ie
+    }
+    -webkit-justify-content: $value;
+    -moz-justify-content: $value;
+    justify-content: $value;
+}
+
+// align-items
+@mixin align-items($value) {
+     @if $value == flex-start{
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+    }
+    @else if $value == flex-end {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+    }
+    @else {
+        -webkit-box-align: $value;
+        -ms-flex-align: $value;
+    }
+    -webkit-align-items: $value;
+    -moz-align-items: $value;
+    align-items: $value;
+}

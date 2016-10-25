@@ -1,0 +1,31 @@
+// Zadanie 8
+// bez @media i ustawienia breakpointow tez dziala
+@import "modules/mixins";
+
+.container {
+    height: 200px;
+    //1 sposob z mixinami
+    @include flexbox2;
+    @include wrap;
+    //2 spasob
+    // @include flex-wrap(wrap); // by kólka się nie splaszczaly przy zmniejszaniu ekranu
+    // @include justify-content(center); // kólka bedą "zjezdzaly" do srodka
+    // @include align-items(center);//jak nadam wysokosc kontenerowi to moge w nim operowac elementami
+
+}
+
+.round {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: darkred;
+    margin: 14px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    //1 sposob
+    @include flexbox2;
+    //2 sposob
+    // @include align-items(center);// wysrodkowanie zawartosci .round/tekstu w pionie
+    // @include justify-content(center);//wysrodkowanie zawartosci .round/tekstu w poziomie
+}

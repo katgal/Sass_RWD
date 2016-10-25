@@ -1,0 +1,27 @@
+//  sass recznie tworzony grid zadanie 4
+// 12 kolumn
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body{
+  font: 100% $font-stack;
+  color: $primary-color;
+  margin: 0 auto;
+  // p {
+    // color: red;
+  // }
+}
+
+$colNum: 12; // 12 kolumn
+$varWidth: 90%/$colNum; // z reguly 100%, 90% w tym wypadku by byly dobrze ulozone wszystkie kolumny
+// jak mam 90% to warto na kontener (tutaj body) dodac margin: 0, tak jak w universal grid
+
+$col: col-; // "col-" prefix dla klasy .col-
+@for $i from 1 through $colNum {
+  .#{$col}#{$i} {
+    width: $i*$varWidth;
+    border: 1px solid black;
+    min-height: 5em;
+    float: left;
+  }
+}

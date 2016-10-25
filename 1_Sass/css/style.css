@@ -1,0 +1,218 @@
+/*zadanie 11 - mixin border-radius*/
+/*Zadanie 1, 2, 14*/
+body {
+  background: #90A6D4;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+h1 {
+  color: blue;
+  /*zmian wprowadzonych do pliku css (zmiany widac w przegladarce) nie widac w pliku scss,
+                      ale po kazdym zapisaniu w scss plik css wraca do normy*/
+  padding: 20px;
+  margin: 20px;
+}
+
+/* Zadanie 3
+na ten moment skorzystam z wyjsciowego stylu expanded, jest najbardziej czytelny, chociaz nested tez jest fajny
+*/
+/*Zadanie 4 - wygenerowanie sourcemaps dla pliku scss - dziala*/
+/*Zadanie 5*/
+/*ten komentarz jest widoczny*/
+/*Zadanie 7 */
+header {
+  border: 1px solid yellow;
+}
+
+header .main-width {
+  width: 1000px;
+}
+
+/*Zadanie 6 - zmiana koloru dla ul i ustawienie paddingu dla section*/
+ul.menu {
+  color: blue;
+}
+
+ul.menu li {
+  display: inline-block;
+  padding: 3px 5px;
+  background: yellow;
+}
+
+section {
+  padding: 20px 0;
+}
+
+/*Zadanie 11 - mixiny*/
+li {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/*Zadanie 12 - w partials zad12*/
+/*placeholder - niewidzialne pudelko z wlasciwosciami; nieistniejacy element,
+w ktorym przechowuje rozne wlasciwosci do wykorzystania na innych elementach poprzez @extend i%*/
+/*zadanie 13 i 16*/
+.success, .error, .info {
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.success {
+  border: 2px solid yellowgreen;
+  background-color: darkgreen;
+}
+
+.error {
+  border: 2px solid darkred;
+  background-color: red;
+}
+
+.info {
+  border: 2px solid green;
+  background-color: lightblue;
+}
+
+/*Zadanie 14 - interpolacja i logika*/
+.headers {
+  color: black;
+}
+
+.h_1 {
+  line-height: 104px;
+  font-size: 83.2px;
+  color: #262626;
+}
+
+.h_2 {
+  line-height: 78px;
+  font-size: 62.4px;
+  color: #4d4d4d;
+}
+
+.h_3 {
+  line-height: 52px;
+  font-size: 41.6px;
+  color: #737373;
+}
+
+.h_4 {
+  line-height: 26px;
+  font-size: 20.8px;
+  color: #999999;
+}
+
+/*zadnie 15 z for i each*/
+.block_1, .block_2, .block_3, .block_4, .block_5, .block_6, .block_7, .block_8, .block_9, .block_10 {
+  width: 100px;
+  height: 100px;
+}
+
+.block_1 {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
+.block_2 {
+  border: 3px solid orange;
+  background-color: yellow;
+}
+
+.block_3 {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
+.block_4 {
+  border: 3px solid orange;
+  background-color: yellow;
+}
+
+.block_5 {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
+.block_6 {
+  border: 3px solid orange;
+  background-color: yellow;
+}
+
+.block_7 {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
+.block_8 {
+  border: 3px solid orange;
+  background-color: yellow;
+}
+
+.block_9 {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
+.block_10 {
+  border: 3px solid orange;
+  background-color: yellow;
+}
+
+/*Zadanie 8*/
+ul.myLinks li:first-child a {
+  color: orange;
+}
+
+ul.myLinks li:first-child a:hover {
+  color: darkred;
+}
+
+ul.myLinks li:first-child a:visited {
+  color: black;
+}
+
+ul.myLinks li:last-child a {
+  color: green;
+}
+
+ul.myLinks li:last-child a:hover {
+  color: darkred;
+}
+
+ul.myLinks li:last-child a:visited {
+  color: black;
+}
+
+a:hover {
+  color: darkred;
+}
+
+a:visited {
+  color: black;
+}
+
+/*Zadanie 9*/
+footer .main-width ul.menu li {
+  display: inline-block;
+  border: 1px solid green;
+  padding: 5px 0;
+  text-align: left;
+  width: 80px;
+}
+
+footer .main-width ul.menu li:hover {
+  background: orangered;
+  color: forestgreen;
+}
+
+footer .main-width ul.menu li:last-child {
+  text-align: right;
+}
+
+/*# sourceMappingURL=style.css.map */

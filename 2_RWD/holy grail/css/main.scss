@@ -1,0 +1,87 @@
+// Zadanie 7 The Holy Grail
+@import "partials/reset";
+
+.holy-grail {
+    color: white;
+    font-weight: bold;
+    line-height: 18px;
+    // min-height: 100vh; // dlaczego nie działa????
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap; // bedzie zawijal wiersz, jak sie nie zmiesci to do nastepnego wiersza
+    // height:100%; // nie działa !!!?????
+    header {
+        order: 1; // ustalam kolejnosc w rzedzie
+        flex: 0 1 100%; // flex init czyli flex grow 0, flex-shrink 1 i 100% szerokości
+        height: 100px;
+        background-color: darkgreen;
+    }
+
+    nav {
+        order: 2;
+        flex: 0 1 15%; // flex init plus 15% szerokosci
+        background-color: lightblue;
+    }
+
+    main {
+        order: 3;
+        min-height: 300px;
+        min-width: 40%;
+        // width: 65%;
+        flex: 1; // wypelni pozostala pusta przestrzen miedzy nav i aside (wartosc wyjsciowa flex-grow to 0),
+        //nie nadaje szerokosci na sztywno, tylko element przyjmuje szerokosc taka na jaka pozwola pozostale elementy
+        background-color: orange;
+    }
+
+    aside {
+        order: 4;
+        flex: 0 1 20%; //flex init plus 20% szerokosci
+        background-color: red;
+    }
+
+    footer {
+        order: 5;
+        flex: 0 1 100%; // flex init plus 100% szerokosci
+        height: 90px;
+        background-color: darkviolet;
+    }
+}
+
+aside, footer, header, main, nav {
+    padding: 10px;
+    margin: 5px;
+}
+// ************** responsywnosc **********************
+// *****smartphones***************
+@media screen and (max-width:400px) {
+    // jesli szerokosc ekranu mniejsza niz 400px to...
+
+    .container {
+        flex-direction: column; // elementy bede ukladaly sie pod soba
+
+        * {
+            width: 100vw; // i mailay 100% viewportu (ladniej z tym wyglada)
+        }
+    }
+}
+//****************tablets*****************
+@media screen and (min-width:401px) and (max-width:800px) {
+    .container {
+        // flex-flow: row wrap;
+        main {
+            order: 2; // zmiana kolejnosci z 3 na 2
+            flex: 0 1 100%; // main będzie na całej szerokosci ekranu pod footerem
+        }
+
+        nav {
+            order: 3; // zmiana kolejnosci z 2 na 3
+        }
+
+        aside, nav {
+            flex: 1; // nav i aside beda obok siebie, beda przyjmowac szerokosc na jaka pozwoli szerokosc ekranu
+            // beda go 'soba wypelniac' w poziomie
+        }
+    }
+}

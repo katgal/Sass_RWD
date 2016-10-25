@@ -1,0 +1,126 @@
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 400px) {
+  body {
+    background-color: green;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 800px) {
+  body {
+    background-color: violet;
+  }
+}
+
+@media (min-width: 801px) {
+  body {
+    background-color: orange;
+  }
+}
+
+.box_zad3 {
+  width: 400px;
+  height: 400px;
+  background-color: red;
+  margin-left: 10px;
+  border: 3px solid darkred;
+  float: left;
+}
+
+@media screen and (max-width: 640px) {
+  .box_zad3 {
+    float: none;
+    width: 100%;
+  }
+}
+
+/*.box_zad3 {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    margin-left: 10px;
+    border: 3px solid darkred;
+    float: left;
+    @media screen and (max-width: 840 px){
+        float: left;
+        width:100%;
+}
+    @media screen and (max-width: 640px) {
+        //jesli ekran jest mniejszy niz 640px to ...
+        float: none;
+        width: 100%;
+    }
+}
+*/
+.zadanie5 {
+  display: inline-block;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 800px) {
+  h1 {
+    font-size: 27px;
+  }
+}
+
+@media (min-width: 801px) {
+  h1 {
+    font-size: 29px;
+  }
+}
+
+p {
+  font-size: 12px;
+}
+
+@media (max-width: 400px) {
+  p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 800px) {
+  p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 801px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+.container_6 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box_zad6 {
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  border: 3px solid lightblue;
+}
+
+.lista {
+  display: flex;
+  justify-content: center;
+}
+
+.lista li {
+  margin: 10px;
+}
+
+/*# sourceMappingURL=main.css.map */

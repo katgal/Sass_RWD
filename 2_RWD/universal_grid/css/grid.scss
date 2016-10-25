@@ -1,0 +1,6 @@
+// nowy grid
+@import "partials/reset"; // nie trzeba pisac rozszerzenia .scss powinien sam sobie znalezc
+@import "partials/grid";
+
+// @include grid-system(); // dodajemy mixina et voila! dziala piekny grid
+@include grid-system(2, 1000px, 8px, 400px); // nadpisujemy wartosci domyslne

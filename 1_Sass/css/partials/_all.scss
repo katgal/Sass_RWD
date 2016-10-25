@@ -1,0 +1,167 @@
+
+// pamietac o zapisie glownego pliku scss po wprowadzeniu zmian!w przeciwnym razie nie zobaczymy efektow naszej pracy
+// nie wiem czy zmienne sa tu potrzebne, ale jak ich nie ma to wywala blad,
+//ze nie ma $main-color i innych zmiennych (dzieje sie tak jezeli kompilator jest wlaczony dla wszystkich plikow - w settings wylaczylam)
+/*Zadanie 1, 2, 14*/
+body {
+    background: #90A6D4;
+    line-height: $lineHeight; // zad 14
+    font-size: $fontSize; // zad 14
+}
+h1 {
+    color: $main-color;
+    /*zmian wprowadzonych do pliku css (zmiany widac w przegladarce) nie widac w pliku scss,
+                      ale po kazdym zapisaniu w scss plik css wraca do normy*/
+    padding: 20px;
+    margin: 20px;
+}
+/* Zadanie 3
+na ten moment skorzystam z wyjsciowego stylu expanded, jest najbardziej czytelny, chociaz nested tez jest fajny
+*/
+/*Zadanie 4 - wygenerowanie sourcemaps dla pliku scss - dziala*/
+/*Zadanie 5*/
+// ten komentarz jest niewidoczny
+/*ten komentarz jest widoczny*/
+/*Zadanie 7 */
+header {
+    border: 1px solid $additional-color;
+    .main-width {
+        width: $main-width; // zagniezdzajac main-width sprawiam ze wszystkie headery beda rowne/maily yaka sama szerokosc
+    }
+}
+/*Zadanie 6 - zmiana koloru dla ul i ustawienie paddingu dla section*/
+ul.menu {
+    color: $main-color;
+    li {
+        display: inline-block;
+        padding: $paddings;
+        background: $additional-color;
+    }
+}
+section {
+    padding: $paddingTopBottom;
+}
+// zadanie 8 w _links08scss; zadanie 9 w _footer09.scss
+// zadanie 10 - posegreguj pliki tak jak prezentacji - done
+/*Zadanie 11 - mixiny*/
+li {
+    @include border-radius(5px);
+}
+/*Zadanie 12 - w partials zad12*/
+/*placeholder - niewidzialne pudelko z wlasciwosciami; nieistniejacy element,
+w ktorym przechowuje rozne wlasciwosci do wykorzystania na innych elementach poprzez @extend i%*/
+/*zadanie 13 i 16*/
+%box {
+    // box to placeholder
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    @include border-radius(5px);
+}
+.success {
+    @extend %box;
+    border: 2px solid yellowgreen;
+    // background: green;
+    background-color: map-get($boxColors, success); // zadanie 16
+}
+.error {
+    @extend %box;
+    border: 2px solid darkred;
+    // background: brown;
+    background-color: map-get($boxColors, error); // zadanie 16
+}
+.info {
+    @extend %box;
+    border: 2px solid green;
+    // background: yellowgreen;
+    background-color: map-get($boxColors, info); // zadanie 16
+}
+// each do zadania 13
+// @each $box in success, error, info {
+// .#{$box} {
+// @extend %box;
+// background-color: map-get($boxColors, $box);
+// border: 3px solid map-get($boxColors, $box);
+// border-color: map-get($additionalColors, $box);
+// }
+// }
+/*Zadanie 14 - interpolacja i logika*/
+// najpierw nadaje ten sam kolor wszytkim naglowkom w .headers, bo h1 już wczesniej stylowalam
+.headers {
+    color: $headersColor;
+}
+// funkcja zheaderSize() znajduje sie w _variables
+@for $i from 1 through 4 {
+    // robie petle od 1 do 4, bo mam 4 elementy
+    .h_#{$i} {
+        // klasa 4 + numer iteracji
+        line-height: (5-$i)*headerSize($lineHeight); // nastawiam wysokosc linii, musze odjac 5-$i; h1=5-1,h2=5-2, itd... bo zaczynamy od nasjwiekszego h
+        font-size: (5-$i)*headerSize($fontSize); // nastawiam weilkosc czcionki, musze odjac 5-$i; h1=5-1,h2=5-2, itd... bo zaczynamy od nasjwiekszego h
+        color: lighten($headersColor,$i*15%); // nastawiam rozjasnienie, z kozda iteracja czcionka jest jasniejsza o 15%
+    }
+}
+// tutaj sam sobie stworzy (przyklad z zajec)
+// $mainSize: 12px; // powina byc _variables
+// for $i from 1 through 4 {
+// h#{$i} {// stworzy h1, h2, h3, h4
+// font-size: $mainSize * (5-$i);
+// color: lighten(&mainColor, 15% *$i);
+// }
+// }
+
+/*zadnie 15 z for i each*/
+// for
+// najpierw tworze sobie placeholder
+%block {
+    width: 100px;
+    height: 100px;
+}
+@for $i from 1 through 10 {
+     @if $i%2 == 0{
+        // jeśli parzyste to ...
+        .block_#{$i} {
+            @extend %block;
+            border: 3px solid orange;
+            background-color: yellow;
+        }
+    }
+    @else {
+        .block_#{$i} {
+            @extend %block;
+            border: 3px solid blue;
+            background-color: lightblue;
+        }
+    }
+}
+// (przyklad z zajec) - mozna if robic odwrotnie
+//@for $i from 1 through 10 {
+// .block_#{$i} {
+// @if $i%2 == 0{
+    // @extend %block;
+    // border: 3px solid orange;
+    // background-color: yellow;
+// }@else {
+// @extend %block;
+// border: 3px solid blue;
+// background-color: lightblue;
+// }
+// }}
+
+// each - wiem ze tutaj lepiej uzywac for, ale chcialam zobaczyc czy dobrze rozumiem each
+// musze robic // ten rodzaj komentarzy bo w przeciwnym razie wywala blad; nie podoba mu sie zmienna $number
+// widocznie nie chce w ogole widzec $number w css
+//@each $number in 01, 02, 03, 04, 05 ,06 ,07,08 , 09, 10{
+// @if $number%2 == 0{
+// .block_#{$number} {
+// @extend %block;
+// border: 3px solid yellow;
+// background-color: map-get($boxColors, blockEven);
+// }
+// } @else {
+// .block_#{$number} {
+// @extend %block;
+// border: 3px solid lightblue;
+// background-color: map-get($boxColors, blockOdd);
+// }
+// }
+// }

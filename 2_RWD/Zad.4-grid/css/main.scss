@@ -1,0 +1,113 @@
+// zadanie 4 - grid-container
+// $baseColumnWidth: 8.333%; // 100% podzielic przez liczbe kolumn, czyli tutaj 12 // do recznego ustawiania szerokosci
+$heightMainAside: 250px;
+$heightFooter: 60px;
+$heightHeader: 90px;
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.grid-container {
+    width: 100%;
+    // max-width: 1200px;
+    max-width: 1920px;
+    /*gutter - odstep*/
+    // dajemy border-box, zeby odstepy nie szalaly (kolumnu byly bezposrednio obok siebie)
+    box-sizing: border-box;
+
+    // w sumie dziala tak samo i bez tego, ale robilam zgodnie z prezentacja,
+    // kolumny maja nie oplywac innych kolumn w innych wierszach
+    // (w badziej zlozonym projekcie bedzie to widac)
+    ::after,
+    ::before {
+        content: ""; // to tak ma byc po prostu
+        display: table;
+        clear: both;
+    }
+}
+
+header {
+    background-color: darkviolet;
+    margin-bottom: 15px;
+    height: $heightHeader;
+}
+
+div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        background-color: #0099cc;
+        padding: 15px;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: lightblue;
+        }
+    }
+}
+// ustawiam tla i wysokosci dla elmenetow
+
+main {
+    background-color: orange;
+    height: $heightMainAside;
+}
+
+aside {
+    background-color: blue;
+    height: $heightMainAside;
+}
+
+footer {
+    background-color: green;
+    margin-top: 15px;
+    height: $heightFooter;
+}
+
+[class*="col-"] {
+    float: left;
+    min-height: 1px;
+    // width: 8.333%; // do recznego ustawiania szerokosci
+    // padding: 15px 0;
+}
+// tutaj ustawiam ręcznie szerokosc kolumn
+// .col-12 {
+// width: 100%;
+// }
+// .col-3 {
+// width: 3*$baseColumnWidth;
+// }
+// .col-6 {
+// width: 6*$baseColumnWidth;
+// }
+
+// tutaj ustawiam za pomoca for szerokosc kolumn
+$colNum: 12; // 12 kolumn
+$varWidth: 100%/$colNum; // z reguly 100%, a.e czasami bierze sie inne wartosci, np 90%
+// w tym wypadku by byly dobrze ulozone wszystkie kolumny dajemy 100%
+$col: col-; // "col-" prefix dla klasy .col-
+@for $i from 1 through $colNum {
+    .#{$col}#{$i} {
+        width: $i*$varWidth;
+    }
+}
+// wyswietlanie glownych elementow strony jeden pod drugim na smartfonach
+@media screen and (max-width: 640px) {
+    [class*="col-"] {
+        float: none;
+        margin-bottom: 15px;
+        // min-height: 1px;
+        width: 100%; // zeby sie ladnie ukladalo na ekranie na calej szerokosci !!!
+    }
+}
+//ale w pozycji poziomej wszystkie szerokosci wyswietlaja sie tak samo, czyli kolumny obok siebie
+@media screen and (max-width: 1920px) and (orientation: landscape) {
+    [class*="col-"] {
+        float: left;
+        // background-color: red; //tak dalam zeby od razu widziec
+    }
+}
